@@ -14,7 +14,7 @@ var request = require("request");
 var Note = require("./models/note");
 var Article = require("./models/article");
 
-var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/mongoHeadlines";
+var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost:3000/scrapeHW";
 
 mongoose.connect(MONGODB_URI);
 
@@ -60,7 +60,7 @@ app.get("/", function(req, res) {
 });
 
 app.get("/scrape", function(req, res) {
-	request("https://www.nytimes.com/section/world", function(error, response, html) {
+	request("https://www.nytimes.com/", function(error, response, html) {
 		var $ = cheerio.load(html);
 		var result = {};
 		$("div.story-body").each(function(i, element) {
