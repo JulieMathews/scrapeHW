@@ -14,7 +14,7 @@ var request = require("request");
 var Note = require("./models/note");
 var Article = require("./models/article");
 
-var MONGODB_URI = process.env.MONGODB_URI || "ongodb://localhost/mongoHeadlines";
+var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/mongoHeadlines";
 
 mongoose.connect(MONGODB_URI);
 
