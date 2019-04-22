@@ -51,7 +51,7 @@ app.listen(port, function() {
 app.get("/", function(req, res) {
 	Article.find({}, null, {sort: {created: -1}}, function(err, data) {
 		if(data.length === 0) {
-			res.render("placeholder", {message: "Please click \"Scrape For Newest Articles\" for new news."});
+			res.render("placeholder", {message: "Please click \"Scrape For Newest Articles\"."});
 		}
 		else{
 			res.render("index", {articles: data});
