@@ -11,8 +11,8 @@ var request = require("request");
 
 // Mongoose
 
-var Note = require("models/Note");
-var Article = require("models/Article");
+var Note = require("./models/Note");
+var Article = require("./models/Article");
 
 var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/mongoHeadlines";
 
@@ -51,7 +51,7 @@ app.listen(port, function() {
 app.get("/", function(req, res) {
 	Article.find({}, null, {sort: {created: -1}}, function(err, data) {
 		if(data.length === 0) {
-			res.render("placeholder", {message: "Please click \"Scrape For Newest Articles\" or search for article."});
+			res.render("placeholder", {message: "Please click \"Scrape For Newest Articles\"."});
 		}
 		else{
 			res.render("index", {articles: data});
