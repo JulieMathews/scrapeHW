@@ -12,11 +12,11 @@ var Articleschema = new Schema({
 	},
 	summary: {
 		type: String,
-		default: "Summary unavailable."
+		default: true,
 	},
 	img: {
-		type: String,
-		// default: "/assets/images/unavailable.jpg"
+    type: String,
+    default: true,
 	},
 	issaved: {
 		type: Boolean,
